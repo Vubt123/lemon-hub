@@ -363,7 +363,7 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                         </div>
                         
                         <div class="script-card-game">
-                            <span class="script-card-game-icon">[⚔️]</span>
+                            <span class="script-card-game-icon">[☯️]</span>
                             <span>Steal a Brainrot</span>
                         </div>
                         
@@ -410,7 +410,7 @@ loadstring(game:HttpGet("https://pastefy.app/v3WJervb/raw"))()
                         </div>
                         
                         <div class="script-card-game">
-                            <span class="script-card-game-icon">[🌶️]</span>
+                            <span class="script-card-game-icon">[☯️]</span>
                             <span>Steal a Brainrot</span>
                         </div>
                         
@@ -442,6 +442,53 @@ loadstring(game:HttpGet("https://pastefy.app/v3WJervb/raw"))()
                             </div>
                             <div class="script-card-script-code" id="chili-script-code">
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"))()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAEX Script Card -->
+                <div class="script-card">
+                    <img src="https://cdn.discordapp.com/icons/1082008661947326644/fffc6093033826219bca9a4242a415b0.png?size=300&quality=lossless" alt="SAEX Script" class="script-card-image">
+                    <div class="script-card-content">
+                        <div class="script-card-header">
+                            <h2 class="script-card-title">SAEX Script</h2>
+                            <span class="script-card-badge">Free</span>
+                        </div>
+                        
+                        <div class="script-card-game">
+                            <span class="script-card-game-icon">[⚡]</span>
+                            <span>Steal a Brainrot</span>
+                        </div>
+                        
+                        <div class="script-card-key-system" style="background: rgba(76, 175, 80, 0.2); border-color: rgba(76, 175, 80, 0.5);">
+                            <span class="script-card-key-system-text" style="color: #4CAF50;">No Key System</span>
+                        </div>
+                        
+                        <p class="script-card-description">
+                            SAEX Script - Free script with auto join feature and no key system required. Fast and reliable performance for Steal a Brainrot.
+                        </p>
+                        
+                        <a href="https://www.roblox.com/games/109983668079237/Steal-a-Brainrot" target="_blank" class="script-card-game-link" onclick="activateAd()">
+                            <svg class="game-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8z"/>
+                                <path d="M12 15c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/>
+                            </svg>
+                            Game Link
+                        </a>
+                        
+                        <div class="script-card-script">
+                            <div class="script-card-script-header">
+                                <span class="script-card-script-label">Script Code</span>
+                                <button class="copy-btn" onclick="copySAEXScript(); activateAd();">
+                                    <svg class="copy-icon" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <div class="script-card-script-code" id="saex-script-code">
+loadstring(game:HttpGet("https://pastefy.app/n57IPp1K/raw"))()
                             </div>
                         </div>
                     </div>
@@ -536,6 +583,21 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main
                 fallbackCopyTextToClipboard(scriptCode);
             }
         }
+
+        // Copy SAEX Script
+function copySAEXScript() {
+    const scriptCode = document.getElementById('saex-script-code').textContent;
+    
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(scriptCode).then(function() {
+            showCopyFeedback();
+        }, function(err) {
+            fallbackCopyTextToClipboard(scriptCode);
+        });
+    } else {
+        fallbackCopyTextToClipboard(scriptCode);
+    }
+}
 
         function fallbackCopyTextToClipboard(text) {
             const textArea = document.createElement("textarea");
