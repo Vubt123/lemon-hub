@@ -123,6 +123,13 @@
         .script-card-script-label { font-weight: bold; color: #ffd700; }
         .script-card-script-code { background: #1e1e1e; color: #f8f8f2; padding: 1.5rem; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; word-break: break-all; text-align: left; border-radius: 8px; border: 1px solid rgba(255, 215, 0, 0.1); }
         
+        /* Pagination Styles */
+        .pagination { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+        .page-btn { padding: 0.8rem 1.5rem; background: rgba(255, 215, 0, 0.1); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; }
+        .page-btn:hover { background: rgba(255, 215, 0, 0.2); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3); }
+        .page-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .page-btn.hidden { display: none; }
+        
         @media (max-width: 768px) {
             .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
             .nav-menu { flex-wrap: wrap; justify-content: center; }
@@ -132,6 +139,7 @@
             .container { padding: 1rem; }
             .script-card { flex-direction: column; text-align: center; }
             .script-card-image { align-self: center; }
+            .pagination { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -348,7 +356,7 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             </div>
         </section>
 
-        <!-- Other Scripts Section -->
+        <!-- Other Scripts Section - Page 1 -->
         <section id="other-scripts-section" class="section">
             <div class="other-scripts-container">
                 <h1 class="script-title">Other Scripts</h1>
@@ -363,7 +371,7 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                         </div>
                         
                         <div class="script-card-game">
-                            <span class="script-card-game-icon">[☯️]</span>
+                            <span class="script-card-game-icon">[⚔️]</span>
                             <span>Steal a Brainrot</span>
                         </div>
                         
@@ -399,7 +407,7 @@ loadstring(game:HttpGet("https://pastefy.app/v3WJervb/raw"))()
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Chili Hub Script Card -->
                 <div class="script-card">
                     <img src="https://cdn.discordapp.com/banners/1385491616013221990/8b9123a2babefebbbcae99d58f9ad339.webp?size=480" alt="Chili Hub" class="script-card-image">
@@ -457,7 +465,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main
                         </div>
                         
                         <div class="script-card-game">
-                            <span class="script-card-game-icon">[☯️]</span>
+                            <span class="script-card-game-icon">[⚡]</span>
                             <span>Steal a Brainrot</span>
                         </div>
                         
@@ -492,6 +500,72 @@ loadstring(game:HttpGet("https://pastefy.app/n57IPp1K/raw"))()
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn hidden" id="prev-btn" onclick="navigateToPage(1)">Previous</button>
+                    <button class="page-btn" id="next-btn" onclick="navigateToPage(2)">Next</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Scripts Section - Page 2 -->
+        <section id="other-scripts-page-2" class="section">
+            <div class="other-scripts-container">
+                <h1 class="script-title">Other Scripts - Page 2</h1>
+                
+                <!-- Kurd Hub Script Card -->
+                <div class="script-card">
+                    <img src="https://imagizer.imageshack.com/img921/3158/e5h38k.png" alt="Kurd Hub" class="script-card-image">
+                    <div class="script-card-content">
+                        <div class="script-card-header">
+                            <h2 class="script-card-title">Kurd Hub</h2>
+                            <span class="script-card-badge">Free</span>
+                        </div>
+                        
+                        <div class="script-card-game">
+                            <span class="script-card-game-icon">[🔥]</span>
+                            <span>Steal a Brainrot</span>
+                        </div>
+                        
+                        <div class="script-card-key-system" style="background: rgba(76, 175, 80, 0.2); border-color: rgba(76, 175, 80, 0.5);">
+                            <span class="script-card-key-system-text" style="color: #4CAF50;">No Key System</span>
+                        </div>
+                        
+                        <p class="script-card-description">
+                            Kurd Hub - Powerful free script for Steal a Brainrot with advanced features and smooth performance. No key system required!
+                        </p>
+                        
+                        <a href="https://www.roblox.com/games/109983668079237/Steal-a-Brainrot" target="_blank" class="script-card-game-link" onclick="activateAd()">
+                            <svg class="game-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8z"/>
+                                <path d="M12 15c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/>
+                            </svg>
+                            Game Link
+                        </a>
+                        
+                        <div class="script-card-script">
+                            <div class="script-card-script-header">
+                                <span class="script-card-script-label">Script Code</span>
+                                <button class="copy-btn" onclick="copyKurdScript(); activateAd();">
+                                    <svg class="copy-icon" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <div class="script-card-script-code" id="kurd-script-code">
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja10908/S4/refs/heads/main/Kurdhub"))()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn" id="prev-btn-2" onclick="navigateToPage(1)">Previous</button>
+                    <button class="page-btn hidden" id="next-btn-2" onclick="navigateToPage(2)">Next</button>
                 </div>
             </div>
         </section>
@@ -528,8 +602,11 @@ loadstring(game:HttpGet("https://pastefy.app/n57IPp1K/raw"))()
             } else if (hash === '#Script') {
                 sectionId = 'script-section';
                 document.querySelector('.nav-btn[onclick="navigateTo(\'#Script\')"]').classList.add('active');
-            } else if (hash === '#Other-Scripts') {
+            } else if (hash === '#Other-Scripts' || hash === '#Other-Scripts-Page-1') {
                 sectionId = 'other-scripts-section';
+                document.querySelector('.nav-btn[onclick="navigateTo(\'#Other-Scripts\')"]').classList.add('active');
+            } else if (hash === '#Other-Scripts-Page-2') {
+                sectionId = 'other-scripts-page-2';
                 document.querySelector('.nav-btn[onclick="navigateTo(\'#Other-Scripts\')"]').classList.add('active');
             }
             
@@ -539,65 +616,55 @@ loadstring(game:HttpGet("https://pastefy.app/n57IPp1K/raw"))()
             }
         }
 
-        // Copy Script
+        // Pagination Navigation
+        function navigateToPage(page) {
+            if (page === 1) {
+                window.location.hash = '#Other-Scripts-Page-1';
+                showSection('#Other-Scripts-Page-1');
+            } else if (page === 2) {
+                window.location.hash = '#Other-Scripts-Page-2';
+                showSection('#Other-Scripts-Page-2');
+            }
+            activateAd();
+        }
+
+        // Copy Script Functions
         function copyScript() {
             const scriptCode = document.getElementById('script-code').textContent;
-            
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(scriptCode).then(function() {
-                    showCopyFeedback();
-                }, function(err) {
-                    fallbackCopyTextToClipboard(scriptCode);
-                });
-            } else {
-                fallbackCopyTextToClipboard(scriptCode);
-            }
+            copyToClipboard(scriptCode);
         }
 
-        // Copy Asura Script
         function copyAsuraScript() {
             const scriptCode = document.getElementById('asura-script-code').textContent;
-            
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(scriptCode).then(function() {
-                    showCopyFeedback();
-                }, function(err) {
-                    fallbackCopyTextToClipboard(scriptCode);
-                });
-            } else {
-                fallbackCopyTextToClipboard(scriptCode);
-            }
+            copyToClipboard(scriptCode);
         }
 
-        // Copy Chili Script
         function copyChiliScript() {
             const scriptCode = document.getElementById('chili-script-code').textContent;
-            
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(scriptCode).then(function() {
-                    showCopyFeedback();
-                }, function(err) {
-                    fallbackCopyTextToClipboard(scriptCode);
-                });
-            } else {
-                fallbackCopyTextToClipboard(scriptCode);
-            }
+            copyToClipboard(scriptCode);
         }
 
-        // Copy SAEX Script
-function copySAEXScript() {
-    const scriptCode = document.getElementById('saex-script-code').textContent;
-    
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(scriptCode).then(function() {
-            showCopyFeedback();
-        }, function(err) {
-            fallbackCopyTextToClipboard(scriptCode);
-        });
-    } else {
-        fallbackCopyTextToClipboard(scriptCode);
-    }
-}
+        function copySAEXScript() {
+            const scriptCode = document.getElementById('saex-script-code').textContent;
+            copyToClipboard(scriptCode);
+        }
+
+        function copyKurdScript() {
+            const scriptCode = document.getElementById('kurd-script-code').textContent;
+            copyToClipboard(scriptCode);
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    showCopyFeedback();
+                }, function(err) {
+                    fallbackCopyTextToClipboard(text);
+                });
+            } else {
+                fallbackCopyTextToClipboard(text);
+            }
+        }
 
         function fallbackCopyTextToClipboard(text) {
             const textArea = document.createElement("textarea");
@@ -653,34 +720,6 @@ function copySAEXScript() {
             }
         }
 
-        // Notification System
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: rgba(255, 215, 0, 0.9);
-                color: #1a1a1a;
-                padding: 1rem 1.5rem;
-                border-radius: 8px;
-                z-index: 1001;
-                font-weight: 600;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                animation: slideIn 0.3s ease-out;
-            `;
-            notification.textContent = message;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease-in';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
-        }
-
         // Ripple Effects
         function addRipple(event) {
             const button = event.currentTarget;
@@ -717,7 +756,7 @@ function copySAEXScript() {
             const interactiveElements = [
                 '.nav-btn', '.copy-btn', '.accept-invite-btn', 
                 '.executor-item', '.legend-item', '.feature-card',
-                '.game-link-btn', '.script-card-game-link'
+                '.game-link-btn', '.script-card-game-link', '.page-btn'
             ];
             
             interactiveElements.forEach(selector => {
