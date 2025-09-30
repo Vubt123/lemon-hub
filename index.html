@@ -49,14 +49,23 @@
         .accept-invite-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: linear-gradient(45deg, #5865f2, #4752c4); color: white; text-decoration: none; border-radius: 4px; font-weight: 500; font-size: 14px; transition: all 0.2s ease; width: 100%; justify-content: center; margin-bottom: 8px; border: none; cursor: pointer; }
         .accept-invite-btn:hover { background: linear-gradient(45deg, #4752c4, #3c45a5); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(88, 101, 242, 0.4); }
         .discord-icon { width: 16px; height: 16px; }
+        .search-container { display: flex; gap: 0.5rem; max-width: 600px; margin: 2rem auto; }
+        .search-input { flex: 1; padding: 0.8rem 1rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 8px; color: white; font-size: 1rem; }
+        .search-input:focus { outline: none; border-color: #ffd700; background: rgba(255, 255, 255, 0.15); }
+        .search-btn { padding: 0.8rem 1.5rem; background: linear-gradient(45deg, #ffd700, #ffed4e); color: #1a1a1a; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; }
+        .search-btn:hover { background: linear-gradient(45deg, #ffed4e, #ffd700); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4); }
+        .home-scripts-section { margin-top: 3rem; }
+        .home-scripts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+        .home-script-card { background: rgba(30, 30, 30, 0.9); border-radius: 15px; padding: 1.5rem; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 2px solid rgba(255, 215, 0, 0.3); transition: all 0.3s ease; cursor: pointer; }
+        .home-script-card:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(255, 215, 0, 0.2); border-color: #ffd700; }
+        .home-script-image { width: 100%; height: 150px; border-radius: 10px; object-fit: cover; margin-bottom: 1rem; border: 2px solid rgba(255, 215, 0, 0.5); }
+        .home-script-name { font-size: 1.3rem; color: #ffd700; font-weight: bold; margin-bottom: 0.5rem; }
+        .home-script-game { color: #cccccc; font-size: 0.9rem; margin-bottom: 1rem; }
+        .home-script-badge { display: inline-block; background: linear-gradient(45deg, #4CAF50, #45a049); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 1rem; }
+        .load-more-btn { display: block; margin: 2rem auto; padding: 1rem 2rem; background: rgba(255, 215, 0, 0.1); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; }
+        .load-more-btn:hover { background: rgba(255, 215, 0, 0.2); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3); }
+        .load-more-btn.hidden { display: none; }
         .features-title { text-align: center; font-size: 2.5rem; color: #ffd700; margin-bottom: 2rem; text-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .feature-card { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); transition: all 0.3s ease; border: 1px solid rgba(255, 215, 0, 0.1); backdrop-filter: blur(10px); }
-        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(255, 215, 0, 0.2); border-color: rgba(255, 215, 0, 0.3); }
-        .feature-icon { width: 60px; height: 60px; margin: 0 auto 1rem auto; background: rgba(255, 215, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255, 215, 0, 0.3); }
-        .feature-icon svg { width: 30px; height: 30px; fill: #ffd700; }
-        .feature-card h3 { color: #ffd700; margin-bottom: 1rem; font-size: 1.3rem; }
-        .feature-card p { color: #cccccc; line-height: 1.6; }
         .script-container { text-align: center; max-width: 800px; margin: 0 auto; }
         .script-title { font-size: 3rem; color: #ffd700; margin-bottom: 2rem; text-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
         .script-logo { width: 200px; height: 200px; border-radius: 20px; object-fit: cover; margin-bottom: 2rem; box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2); border: 2px solid rgba(255, 215, 0, 0.5); position: relative; animation: logoGlow 3s ease-in-out infinite alternate; }
@@ -72,13 +81,9 @@
         .script-code { background: #1e1e1e; color: #f8f8f2; padding: 2rem; font-family: 'Courier New', monospace; font-size: 1rem; line-height: 1.6; word-break: break-all; text-align: left; border: 1px solid rgba(255, 215, 0, 0.1); }
         .script-instructions { color: #cccccc; font-size: 1.1rem; font-style: italic; margin-top: 1rem; }
         .executor-compatibility { background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 235, 59, 0.08) 50%, rgba(255, 215, 0, 0.05) 100%); border-radius: 20px; padding: 2.5rem; margin-top: 2rem; box-shadow: 0 10px 30px rgba(255, 193, 7, 0.1), 0 0 0 1px rgba(255, 235, 59, 0.1); position: relative; overflow: hidden; backdrop-filter: blur(10px); border: 1px solid rgba(255, 215, 0, 0.2); }
-        .executor-compatibility::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="30" opacity="0.03" fill="%23ffd700">LH</text></svg>') repeat; background-size: 80px 80px; animation: lemonPattern 20s linear infinite; pointer-events: none; }
-        @keyframes lemonPattern { 0% { transform: translateX(0) translateY(0); } 100% { transform: translateX(80px) translateY(80px); } }
-        .compatibility-title { font-size: 2.2rem; font-weight: 700; background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 2rem; text-align: center; position: relative; z-index: 2; text-shadow: 0 2px 4px rgba(0,0,0,0.1); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; }
+        .compatibility-title { font-size: 2.2rem; font-weight: 700; background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 2rem; text-align: center; position: relative; z-index: 2; }
         .compatibility-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-bottom: 2.5rem; position: relative; z-index: 2; }
-        .executor-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.3rem; border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; position: relative; overflow: hidden; backdrop-filter: blur(10px); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .executor-item::before { content: ''; position: absolute; top: 10px; right: 10px; width: 20px; height: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease; }
-        .executor-item:hover::before { opacity: 1; }
+        .executor-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.3rem; border-radius: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; position: relative; overflow: hidden; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .executor-item:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 25px rgba(255, 193, 7, 0.2); }
         .executor-item.supported { background: linear-gradient(135deg, rgba(139, 195, 74, 0.15), rgba(76, 175, 80, 0.1)); border: 1px solid rgba(139, 195, 74, 0.3); }
         .executor-item.krnl-android { background: linear-gradient(135deg, rgba(139, 195, 74, 0.15), rgba(76, 175, 80, 0.1)); border: 1px solid rgba(139, 195, 74, 0.3); }
@@ -87,24 +92,10 @@
         .status-icon { font-size: 1.4rem; min-width: 28px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
         .executor-name { font-weight: 600; font-size: 1.1rem; color: #ffffff; letter-spacing: 0.3px; }
         .compatibility-legend { border-top: 1px solid rgba(255, 193, 7, 0.2); padding-top: 2rem; position: relative; z-index: 2; background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 2rem; backdrop-filter: blur(5px); }
-        .legend-item { display: flex; align-items: center; gap: 1rem; padding: 0.8rem 0; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; transition: all 0.2s ease; border-radius: 8px; cursor: pointer; position: relative; overflow: hidden; }
+        .legend-item { display: flex; align-items: center; gap: 1rem; padding: 0.8rem 0; transition: all 0.2s ease; border-radius: 8px; cursor: pointer; position: relative; overflow: hidden; }
         .legend-item:hover { background: rgba(255, 255, 255, 0.05); transform: translateX(5px); }
         .legend-icon { font-size: 1.2rem; min-width: 28px; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); }
         .legend-text { color: #ffffff; font-size: 1rem; font-weight: 500; line-height: 1.5; }
-        .ripple { position: relative; overflow: hidden; }
-        .ripple::after { content: ''; position: absolute; width: 100px; height: 100px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; transform: scale(0); animation: rippleAnimation 0.6s ease-out; pointer-events: none; }
-        @keyframes rippleAnimation { 0% { transform: scale(0); opacity: 0.7; } 100% { transform: scale(2); opacity: 0; } }
-        .executor-compatibility .lemon-float { position: absolute; font-size: 1.5rem; opacity: 0.05; pointer-events: none; z-index: 1; color: #ffd700; }
-        .lemon-float-1 { top: 20%; left: 5%; animation: floatLemon 8s ease-in-out infinite; }
-        .lemon-float-2 { top: 70%; right: 8%; animation: floatLemon 6s ease-in-out infinite 2s; }
-        .lemon-float-3 { bottom: 30%; left: 10%; animation: floatLemon 7s ease-in-out infinite 1s; }
-        @keyframes floatLemon { 0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.05; } 50% { transform: translateY(-15px) rotate(180deg); opacity: 0.1; } }
-        .ad-container { margin: 20px auto; text-align: center; padding: 10px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; max-width: 468px; min-height: 60px; border: 1px solid rgba(255, 215, 0, 0.1); }
-        @keyframes universalRipple { 0% { transform: scale(0); opacity: 1; } 50% { opacity: 0.7; } 100% { transform: scale(3); opacity: 0; } }
-        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
-        
-        /* Other Scripts Section Styles */
         .other-scripts-container { max-width: 1000px; margin: 0 auto; }
         .script-card { background: rgba(30, 30, 30, 0.9); border-radius: 15px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 2px solid rgba(255, 215, 0, 0.3); display: flex; gap: 2rem; align-items: flex-start; position: relative; }
         .script-card-image { width: 150px; height: 150px; border-radius: 10px; object-fit: cover; border: 2px solid rgba(255, 215, 0, 0.5); box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
@@ -123,20 +114,14 @@
         .script-card-script-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
         .script-card-script-label { font-weight: bold; color: #ffd700; }
         .script-card-script-code { background: #1e1e1e; color: #f8f8f2; padding: 1.5rem; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; word-break: break-all; text-align: left; border-radius: 8px; border: 1px solid rgba(255, 215, 0, 0.1); }
-        
-        /* Delete Button */
         .delete-btn { position: absolute; top: 1rem; right: 1rem; background: rgba(244, 67, 54, 0.8); color: white; border: none; border-radius: 5px; padding: 0.5rem 0.8rem; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease; display: none; }
         .delete-btn:hover { background: rgba(244, 67, 54, 1); transform: scale(1.1); }
         .script-card:hover .delete-btn { display: block; }
-        
-        /* Pagination Styles */
         .pagination { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
         .page-btn { padding: 0.8rem 1.5rem; background: rgba(255, 215, 0, 0.1); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; }
         .page-btn:hover { background: rgba(255, 215, 0, 0.2); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3); }
         .page-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
         .page-btn.hidden { display: none; }
-        
-        /* Upload Section Styles */
         .upload-container { max-width: 800px; margin: 0 auto; }
         .upload-form { background: rgba(30, 30, 30, 0.9); border-radius: 15px; padding: 2rem; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 2px solid rgba(255, 215, 0, 0.3); }
         .form-group { margin-bottom: 1.5rem; }
@@ -155,26 +140,43 @@
         .toggle-btn.active { background: rgba(255, 215, 0, 0.2); color: #ffd700; border-color: #ffd700; }
         .upload-submit-btn { width: 100%; padding: 1rem; background: linear-gradient(45deg, #4CAF50, #45a049); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-top: 1rem; }
         .upload-submit-btn:hover { background: linear-gradient(45deg, #45a049, #3d8b40); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4); }
-        
-        /* Admin Notification */
         .admin-notification { position: fixed; top: 20px; right: 20px; background: rgba(255, 215, 0, 0.9); color: #1a1a1a; padding: 1rem 1.5rem; border-radius: 8px; z-index: 1001; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3); animation: slideIn 0.3s ease-out; }
-        
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+        .crop-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 1000; display: none; align-items: center; justify-content: center; }
+        .crop-modal.active { display: flex; }
+        .crop-container { background: rgba(30, 30, 30, 0.95); border-radius: 15px; padding: 2rem; max-width: 800px; width: 90%; border: 2px solid rgba(255, 215, 0, 0.3); }
+        .crop-canvas-container { position: relative; max-width: 100%; max-height: 500px; overflow: hidden; margin-bottom: 1.5rem; background: #000; border-radius: 10px; }
+        .crop-canvas { max-width: 100%; display: block; }
+        .crop-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+        .crop-area { position: absolute; border: 2px dashed #ffd700; box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5); cursor: move; pointer-events: all; }
+        .crop-handle { position: absolute; width: 12px; height: 12px; background: #ffd700; border: 2px solid #fff; border-radius: 50%; pointer-events: all; }
+        .crop-handle.nw { top: -6px; left: -6px; cursor: nw-resize; }
+        .crop-handle.ne { top: -6px; right: -6px; cursor: ne-resize; }
+        .crop-handle.sw { bottom: -6px; left: -6px; cursor: sw-resize; }
+        .crop-handle.se { bottom: -6px; right: -6px; cursor: se-resize; }
+        .crop-controls { display: flex; gap: 1rem; justify-content: center; }
+        .crop-btn { padding: 0.8rem 1.5rem; background: linear-gradient(45deg, #4CAF50, #45a049); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; }
+        .crop-btn:hover { background: linear-gradient(45deg, #45a049, #3d8b40); transform: translateY(-2px); }
+        .crop-btn.cancel { background: linear-gradient(45deg, #f44336, #da190b); }
+        .crop-btn.cancel:hover { background: linear-gradient(45deg, #da190b, #c41409); }
+        .ad-container { margin: 20px auto; text-align: center; padding: 10px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; max-width: 468px; min-height: 60px; border: 1px solid rgba(255, 215, 0, 0.1); }
         @media (max-width: 768px) {
             .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
             .nav-menu { flex-wrap: wrap; justify-content: center; }
             .hero-title { font-size: 2.5rem; }
             .script-title { font-size: 2rem; }
-            .features-grid { grid-template-columns: 1fr; }
             .container { padding: 1rem; }
             .script-card { flex-direction: column; text-align: center; }
             .script-card-image { align-self: center; }
             .pagination { flex-direction: column; align-items: center; }
             .toggle-group { flex-direction: column; }
+            .home-scripts-grid { grid-template-columns: 1fr; }
+            .search-container { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-    <!-- Lemon Doodles Background -->
     <div class="lemon-doodles">
         <div class="lemon lemon1">🍋</div>
         <div class="lemon lemon2">🍋</div>
@@ -183,7 +185,6 @@
         <div class="lemon lemon5">🍋</div>
     </div>
 
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-brand">
             <img src="https://imagizer.imageshack.com/img922/3774/Sk58gA.png" alt="Lemon Hub" class="logo">
@@ -197,9 +198,7 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="container">
-        <!-- Home Section -->
         <section id="home-section" class="section active">
             <div class="hero">
                 <h1 class="hero-title">Welcome to Lemon Hub</h1>
@@ -213,13 +212,11 @@
                                 <h3 class="server-name">Lemon Hub</h3>
                             </div>
                         </div>
-                        
                         <div class="invitation-body">
                             <p class="invitation-text">You've been invited to join</p>
                             <h2 class="server-title">Lemon Hub Discord Server</h2>
                             <p class="invitation-desc">Best Steal a Brainrot Script & community</p>
                         </div>
-                        
                         <div class="invitation-footer">
                             <a href="https://discord.gg/gnR4u82wkJ" target="_blank" class="accept-invite-btn" onclick="activateAd()">
                                 <svg class="discord-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -230,52 +227,24 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" id="homeSearchInput" placeholder="Search scripts..." onkeypress="handleHomeSearch(event)">
+                    <button class="search-btn" onclick="performHomeSearch()">
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
 
-            <div class="features">
-                <h2 class="features-title">Features</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M13 3v10h8V3h-8zM3 21h8v-6H3v6zM3 11h8V3H3v8z"/>
-                            </svg>
-                        </div>
-                        <h3>Advanced Steal Mechanics</h3>
-                        <p>Premium stealing system with brainrot integration for maximum efficiency</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <h3>Auto Server Joiner</h3>
-                        <p>Automatically join servers with brainrot features - contact owner for purchase</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                            </svg>
-                        </div>
-                        <h3>Advanced Desync</h3>
-                        <p>Premium desync system optimized for stealing operations</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M7 2v11h3v9l7-12h-4l4-8H7z"/>
-                            </svg>
-                        </div>
-                        <h3>Premium Features</h3>
-                        <p>Exclusive tools and utilities for enhanced gameplay experience</p>
-                    </div>
-                </div>
+            <div class="home-scripts-section">
+                <h2 class="features-title">Available Scripts</h2>
+                <div id="homeScriptsGrid" class="home-scripts-grid"></div>
+                <button class="load-more-btn" id="homeLoadMoreBtn" onclick="loadMoreHomeScripts()">Load More</button>
             </div>
         </section>
 
-        <!-- Script Section -->
         <section id="script-section" class="section">
             <div class="script-container">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
@@ -301,84 +270,78 @@
                             Copy
                         </button>
                     </div>
-                    <div class="script-code" id="script-code">
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf923191e93377656f67.lua"))()
-                    </div>
+                    <div class="script-code" id="script-code">loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf923191e93377656f67.lua"))()</div>
                 </div>
                 
                 <p class="script-instructions">Copy the script above and paste it into your executor!</p>
                 
                 <div class="executor-compatibility">
-                    <div class="lemon-float lemon-float-1">LH</div>
-                    <div class="lemon-float lemon-float-2">LH</div>
-                    <div class="lemon-float lemon-float-3">LH</div>
-                    
                     <h3 class="compatibility-title">Executor Compatibility</h3>
                     <div class="compatibility-list">
-                        <div class="executor-item supported ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item supported" onclick="activateAd()">
                             <span class="status-icon">✅</span>
                             <span class="executor-name">Swift</span>
                         </div>
-                        <div class="executor-item supported ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item supported" onclick="activateAd()">
                             <span class="status-icon">✅</span>
                             <span class="executor-name">Potassium</span>
                         </div>
-                        <div class="executor-item supported ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item supported" onclick="activateAd()">
                             <span class="status-icon">✅</span>
                             <span class="executor-name">Wave</span>
                         </div>
-                        <div class="executor-item supported ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item supported" onclick="activateAd()">
                             <span class="status-icon">✅</span>
                             <span class="executor-name">Zenith</span>
                         </div>
-                        <div class="executor-item supported ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item supported" onclick="activateAd()">
                             <span class="status-icon">✅</span>
                             <span class="executor-name">Bunni</span>
                         </div>
-                        <div class="executor-item supported ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item supported" onclick="activateAd()">
                             <span class="status-icon">✅</span>
                             <span class="executor-name">Delta</span>
                         </div>
-                        <div class="executor-item supported ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item supported" onclick="activateAd()">
                             <span class="status-icon">✅</span>
                             <span class="executor-name">Seliware</span>
                         </div>
-                        <div class="executor-item supported ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item supported" onclick="activateAd()">
                             <span class="status-icon">✅</span>
                             <span class="executor-name">Ronix</span>
                         </div>
-                        <div class="executor-item krnl-android ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item krnl-android" onclick="activateAd()">
                             <span class="status-icon">✅</span>
                             <span class="executor-name">Krnl Android</span>
                         </div>
-                        <div class="executor-item krnl-ios ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item krnl-ios" onclick="activateAd()">
                             <span class="status-icon">⚠️</span>
                             <span class="executor-name">Krnl iOS</span>
                         </div>
-                        <div class="executor-item detected ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item detected" onclick="activateAd()">
                             <span class="status-icon">⚠️</span>
                             <span class="executor-name">Xeno</span>
                         </div>
-                        <div class="executor-item detected ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item detected" onclick="activateAd()">
                             <span class="status-icon">⚠️</span>
                             <span class="executor-name">Solara</span>
                         </div>
-                        <div class="executor-item detected ripple" onclick="addRipple(event); activateAd();">
+                        <div class="executor-item detected" onclick="activateAd()">
                             <span class="status-icon">⚠️</span>
                             <span class="executor-name">JJspoit</span>
                         </div>
                     </div>
                     
                     <div class="compatibility-legend">
-                        <div class="legend-item ripple" onclick="addRipple(event); activateAd();">
+                        <div class="legend-item" onclick="activateAd()">
                             <span class="legend-icon">✅</span>
                             <span class="legend-text">Supported Executor and working for Lemon Hub</span>
                         </div>
-                        <div class="legend-item ripple" onclick="addRipple(event); activateAd();">
+                        <div class="legend-item" onclick="activateAd()">
                             <span class="legend-icon">⚠️</span>
                             <span class="legend-text">Working BUT detected by anti-cheat systems</span>
                         </div>
-                        <div class="legend-item ripple" onclick="addRipple(event); activateAd();">
+                        <div class="legend-item" onclick="activateAd()">
                             <span class="legend-icon">❌</span>
                             <span class="legend-text">Non-Supported Executor and is not working for Lemon Hub</span>
                         </div>
@@ -387,15 +350,21 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             </div>
         </section>
 
-        <!-- Other Scripts Section - Page 1 -->
         <section id="other-scripts-section" class="section">
             <div class="other-scripts-container">
                 <h1 class="script-title">Other Scripts</h1>
-                <div id="page1-scripts">
-                    <!-- Scripts will be dynamically loaded here -->
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" id="otherScriptsSearchInput" placeholder="Search scripts..." onkeypress="handleOtherScriptsSearch(event)">
+                    <button class="search-btn" onclick="performOtherScriptsSearch()">
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                    </button>
                 </div>
+                
+                <div id="page1-scripts"></div>
 
-                <!-- Pagination -->
                 <div class="pagination">
                     <button class="page-btn hidden" id="prev-btn" onclick="navigateToPage(1)">Previous</button>
                     <button class="page-btn" id="next-btn" onclick="navigateToPage(2)">Next</button>
@@ -403,15 +372,11 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             </div>
         </section>
 
-        <!-- Other Scripts Section - Page 2 -->
         <section id="other-scripts-page-2" class="section">
             <div class="other-scripts-container">
                 <h1 class="script-title">Other Scripts - Page 2</h1>
-                <div id="page2-scripts">
-                    <!-- Scripts will be dynamically loaded here -->
-                </div>
+                <div id="page2-scripts"></div>
 
-                <!-- Pagination -->
                 <div class="pagination">
                     <button class="page-btn" id="prev-btn-2" onclick="navigateToPage(1)">Previous</button>
                     <button class="page-btn hidden" id="next-btn-2" onclick="navigateToPage(2)">Next</button>
@@ -419,7 +384,6 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             </div>
         </section>
 
-        <!-- Upload Section -->
         <section id="other-scripts-upload" class="section">
             <div class="upload-container">
                 <h1 class="script-title">Upload Script</h1>
@@ -427,7 +391,7 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                 <div class="upload-form">
                     <div class="form-group">
                         <label class="form-label">Script Image</label>
-                        <div class="upload-area" id="uploadArea" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" onclick="document.getElementById('fileInput').click()">
+                        <div class="upload-area" id="uploadArea" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragleave="handleDragLeave(event)" onclick="document.getElementById('fileInput').click()">
                             <div class="upload-icon">📁</div>
                             <div class="upload-text">Drag & drop your script image here or click to browse</div>
                             <input type="file" id="fileInput" accept="image/*" style="display: none" onchange="handleFileSelect(event)">
@@ -491,32 +455,55 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
         </section>
     </main>
 
-    <!-- Ad Container -->
     <div id="ad-container" class="ad-container"></div>
 
+    <div class="crop-modal" id="cropModal">
+        <div class="crop-container">
+            <h2 style="color: #ffd700; text-align: center; margin-bottom: 1.5rem;">Crop Image</h2>
+            <div class="crop-canvas-container" id="cropCanvasContainer">
+                <canvas class="crop-canvas" id="cropCanvas"></canvas>
+                <div class="crop-overlay">
+                    <div class="crop-area" id="cropArea">
+                        <div class="crop-handle nw"></div>
+                        <div class="crop-handle ne"></div>
+                        <div class="crop-handle sw"></div>
+                        <div class="crop-handle se"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="crop-controls">
+                <button class="crop-btn cancel" onclick="cancelCrop()">Cancel</button>
+                <button class="crop-btn" onclick="applyCrop()">Apply Crop</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Global Variables
         let adLoaded = false;
         let adminAccess = false;
         let typedString = '';
         let currentScriptType = 'free';
         let currentKeySystem = 'key';
+        let homeScriptsDisplayed = 3;
+        let cropImage = null;
+        let cropData = { x: 0, y: 0, width: 200, height: 200 };
+        let isDragging = false;
+        let isResizing = false;
+        let resizeHandle = null;
+        let startX = 0;
+        let startY = 0;
 
-        // Global Script Storage Simulation (in real app, this would be a server/database)
         const GLOBAL_SCRIPTS_KEY = 'lemonhub_global_scripts';
         
-        // Get global scripts from localStorage
         function getGlobalScripts() {
             const scripts = localStorage.getItem(GLOBAL_SCRIPTS_KEY);
             return scripts ? JSON.parse(scripts) : [];
         }
         
-        // Save global scripts to localStorage
         function saveGlobalScripts(scripts) {
             localStorage.setItem(GLOBAL_SCRIPTS_KEY, JSON.stringify(scripts));
         }
 
-        // Default Scripts
         const defaultScripts = [
             {
                 id: 1,
@@ -570,7 +557,6 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             }
         ];
 
-        // Admin Access System
         document.addEventListener('keydown', function(event) {
             typedString += event.key;
             
@@ -579,7 +565,7 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                 typedString = '';
                 adminAccess = true;
                 updateUploadButtonVisibility();
-                loadScripts(); // Reload scripts to show delete buttons
+                loadScripts();
             }
             
             if (typedString.length > 20) {
@@ -597,7 +583,9 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             setTimeout(() => {
                 notification.style.animation = 'slideOut 0.3s ease-in';
                 setTimeout(() => {
-                    document.body.removeChild(notification);
+                    if (notification.parentNode) {
+                        document.body.removeChild(notification);
+                    }
                 }, 300);
             }, 3000);
         }
@@ -611,10 +599,13 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             }
         }
 
-        // Upload System Functions
         function handleDragOver(event) {
             event.preventDefault();
             event.currentTarget.classList.add('dragover');
+        }
+
+        function handleDragLeave(event) {
+            event.currentTarget.classList.remove('dragover');
         }
 
         function handleDrop(event) {
@@ -642,11 +633,180 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             
             const reader = new FileReader();
             reader.onload = function(e) {
-                const preview = document.getElementById('imagePreview');
-                preview.src = e.target.result;
-                preview.style.display = 'block';
+                cropImage = new Image();
+                cropImage.onload = function() {
+                    showCropModal(cropImage);
+                };
+                cropImage.src = e.target.result;
             };
             reader.readAsDataURL(file);
+        }
+
+        function showCropModal(img) {
+            const modal = document.getElementById('cropModal');
+            const canvas = document.getElementById('cropCanvas');
+            const ctx = canvas.getContext('2d');
+            const container = document.getElementById('cropCanvasContainer');
+            
+            const maxWidth = Math.min(container.clientWidth - 40, 700);
+            const maxHeight = 500;
+            let width = img.width;
+            let height = img.height;
+            
+            if (width > maxWidth) {
+                height = (height * maxWidth) / width;
+                width = maxWidth;
+            }
+            if (height > maxHeight) {
+                width = (width * maxHeight) / height;
+                height = maxHeight;
+            }
+            
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            cropData = {
+                x: width / 4,
+                y: height / 4,
+                width: width / 2,
+                height: height / 2
+            };
+            
+            updateCropArea();
+            modal.classList.add('active');
+            
+            setupCropHandlers();
+        }
+
+        function setupCropHandlers() {
+            const cropArea = document.getElementById('cropArea');
+            const handles = cropArea.querySelectorAll('.crop-handle');
+            
+            cropArea.addEventListener('mousedown', startDrag);
+            handles.forEach(handle => {
+                handle.addEventListener('mousedown', startResize);
+            });
+        }
+
+        function startDrag(e) {
+            if (e.target.classList.contains('crop-handle')) return;
+            isDragging = true;
+            const rect = document.getElementById('cropArea').getBoundingClientRect();
+            startX = e.clientX - rect.left;
+            startY = e.clientY - rect.top;
+            e.preventDefault();
+        }
+
+        function startResize(e) {
+            isResizing = true;
+            const classes = e.target.className.split(' ');
+            resizeHandle = classes[classes.length - 1];
+            startX = e.clientX;
+            startY = e.clientY;
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        document.addEventListener('mousemove', function(e) {
+            const canvas = document.getElementById('cropCanvas');
+            if (!canvas) return;
+            
+            if (isDragging) {
+                const containerRect = document.getElementById('cropCanvasContainer').getBoundingClientRect();
+                const newX = e.clientX - containerRect.left - startX;
+                const newY = e.clientY - containerRect.top - startY;
+                
+                cropData.x = Math.max(0, Math.min(canvas.width - cropData.width, newX));
+                cropData.y = Math.max(0, Math.min(canvas.height - cropData.height, newY));
+                updateCropArea();
+            }
+            
+            if (isResizing) {
+                const deltaX = e.clientX - startX;
+                const deltaY = e.clientY - startY;
+                
+                switch(resizeHandle) {
+                    case 'se':
+                        cropData.width = Math.max(50, Math.min(canvas.width - cropData.x, cropData.width + deltaX));
+                        cropData.height = Math.max(50, Math.min(canvas.height - cropData.y, cropData.height + deltaY));
+                        break;
+                    case 'sw':
+                        const newWidth = cropData.width - deltaX;
+                        if (newWidth >= 50 && cropData.x + deltaX >= 0) {
+                            cropData.x += deltaX;
+                            cropData.width = newWidth;
+                        }
+                        cropData.height = Math.max(50, Math.min(canvas.height - cropData.y, cropData.height + deltaY));
+                        break;
+                    case 'ne':
+                        cropData.width = Math.max(50, Math.min(canvas.width - cropData.x, cropData.width + deltaX));
+                        const newHeight = cropData.height - deltaY;
+                        if (newHeight >= 50 && cropData.y + deltaY >= 0) {
+                            cropData.y += deltaY;
+                            cropData.height = newHeight;
+                        }
+                        break;
+                    case 'nw':
+                        const newW = cropData.width - deltaX;
+                        const newH = cropData.height - deltaY;
+                        if (newW >= 50 && cropData.x + deltaX >= 0) {
+                            cropData.x += deltaX;
+                            cropData.width = newW;
+                        }
+                        if (newH >= 50 && cropData.y + deltaY >= 0) {
+                            cropData.y += deltaY;
+                            cropData.height = newH;
+                        }
+                        break;
+                }
+                
+                startX = e.clientX;
+                startY = e.clientY;
+                updateCropArea();
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+            isResizing = false;
+            resizeHandle = null;
+        });
+
+        function updateCropArea() {
+            const cropArea = document.getElementById('cropArea');
+            cropArea.style.left = cropData.x + 'px';
+            cropArea.style.top = cropData.y + 'px';
+            cropArea.style.width = cropData.width + 'px';
+            cropArea.style.height = cropData.height + 'px';
+        }
+
+        function applyCrop() {
+            const canvas = document.getElementById('cropCanvas');
+            const tempCanvas = document.createElement('canvas');
+            const tempCtx = tempCanvas.getContext('2d');
+            
+            tempCanvas.width = cropData.width;
+            tempCanvas.height = cropData.height;
+            
+            tempCtx.drawImage(
+                canvas,
+                cropData.x, cropData.y, cropData.width, cropData.height,
+                0, 0, cropData.width, cropData.height
+            );
+            
+            const croppedImage = tempCanvas.toDataURL('image/png');
+            const preview = document.getElementById('imagePreview');
+            preview.src = croppedImage;
+            preview.style.display = 'block';
+            
+            cancelCrop();
+        }
+
+        function cancelCrop() {
+            const modal = document.getElementById('cropModal');
+            modal.classList.remove('active');
+            cropImage = null;
         }
 
         function fetchGameName() {
@@ -705,14 +865,12 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                 uploader: 'Admin'
             };
             
-            // Save to global storage
             const globalScripts = getGlobalScripts();
             globalScripts.push(newScript);
             saveGlobalScripts(globalScripts);
             
             showNotification('Script uploaded successfully! It is now available globally.');
             
-            // Reset form
             document.getElementById('scriptName').value = '';
             document.getElementById('gameId').value = '';
             document.getElementById('gameName').value = '';
@@ -720,21 +878,152 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             document.getElementById('scriptDescription').value = '';
             document.getElementById('imagePreview').style.display = 'none';
             document.getElementById('imagePreview').src = '';
+            document.getElementById('fileInput').value = '';
             
-            // Reload scripts and navigate
             loadScripts();
+            loadHomeScripts();
             setTimeout(() => {
                 navigateTo('#Other-Scripts');
             }, 2000);
         }
 
-        // Script Management
+        function handleHomeSearch(event) {
+            if (event.key === 'Enter') {
+                performHomeSearch();
+            }
+        }
+
+        function performHomeSearch() {
+            const searchTerm = document.getElementById('homeSearchInput').value.trim();
+            
+            if (searchTerm) {
+                const encodedSearch = encodeURIComponent(searchTerm);
+                window.location.hash = `#Home/Search=${encodedSearch}`;
+                displaySearchResults(searchTerm, 'home');
+            } else {
+                window.location.hash = '#Home';
+                homeScriptsDisplayed = 3;
+                loadHomeScripts();
+            }
+        }
+
+        function handleOtherScriptsSearch(event) {
+            if (event.key === 'Enter') {
+                performOtherScriptsSearch();
+            }
+        }
+
+        function performOtherScriptsSearch() {
+            const searchTerm = document.getElementById('otherScriptsSearchInput').value.trim();
+            
+            if (searchTerm) {
+                const encodedSearch = encodeURIComponent(searchTerm);
+                window.location.hash = `#Other-scripts/Search=${encodedSearch}`;
+                displaySearchResults(searchTerm, 'other');
+            } else {
+                window.location.hash = '#Other-Scripts';
+                loadScripts();
+            }
+        }
+
+        function displaySearchResults(searchTerm, section) {
+            const globalScripts = getGlobalScripts();
+            const allScripts = [...defaultScripts, ...globalScripts];
+            
+            const searchLower = searchTerm.toLowerCase();
+            let results = allScripts.filter(script => {
+                const nameLower = script.name.toLowerCase();
+                const gameLower = script.game.toLowerCase();
+                return nameLower.includes(searchLower) || gameLower.includes(searchLower);
+            });
+            
+            if (results.length > 3 && searchTerm.length < 5) {
+                results = results.slice(0, 3);
+            }
+            
+            if (section === 'home') {
+                const grid = document.getElementById('homeScriptsGrid');
+                grid.innerHTML = '';
+                
+                if (results.length === 0) {
+                    grid.innerHTML = '<p style="color: #cccccc; text-align: center; grid-column: 1/-1;">No scripts found matching your search.</p>';
+                } else {
+                    results.forEach(script => {
+                        grid.appendChild(createHomeScriptCard(script));
+                    });
+                }
+                
+                document.getElementById('homeLoadMoreBtn').classList.add('hidden');
+            } else {
+                const container = document.getElementById('page1-scripts');
+                container.innerHTML = '';
+                
+                if (results.length === 0) {
+                    container.innerHTML = '<p style="color: #cccccc; text-align: center;">No scripts found matching your search.</p>';
+                } else {
+                    results.forEach(script => {
+                        container.appendChild(createScriptCard(script));
+                    });
+                }
+                
+                document.getElementById('next-btn').classList.add('hidden');
+            }
+        }
+
+        function loadHomeScripts() {
+            const globalScripts = getGlobalScripts();
+            const allScripts = [...defaultScripts, ...globalScripts];
+            const grid = document.getElementById('homeScriptsGrid');
+            
+            grid.innerHTML = '';
+            
+            const scriptsToShow = allScripts.slice(0, homeScriptsDisplayed);
+            scriptsToShow.forEach(script => {
+                grid.appendChild(createHomeScriptCard(script));
+            });
+            
+            const loadMoreBtn = document.getElementById('homeLoadMoreBtn');
+            if (homeScriptsDisplayed >= allScripts.length) {
+                loadMoreBtn.classList.add('hidden');
+            } else {
+                loadMoreBtn.classList.remove('hidden');
+            }
+        }
+
+        function createHomeScriptCard(script) {
+            const card = document.createElement('div');
+            card.className = 'home-script-card';
+            card.onclick = () => {
+                navigateTo('#Other-Scripts');
+                setTimeout(() => {
+                    const scriptElement = document.querySelector(`[data-script-id="${script.id}"]`);
+                    if (scriptElement) {
+                        scriptElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 100);
+            };
+            
+            card.innerHTML = `
+                <img src="${script.image}" alt="${script.name}" class="home-script-image">
+                <h3 class="home-script-name">${script.name}</h3>
+                <p class="home-script-game">[☯️] ${script.game}</p>
+                <span class="home-script-badge">${script.free ? 'Free' : 'Paid'}</span>
+            `;
+            
+            return card;
+        }
+
+        function loadMoreHomeScripts() {
+            homeScriptsDisplayed += 3;
+            loadHomeScripts();
+            activateAd();
+        }
+
         function loadScripts() {
             const globalScripts = getGlobalScripts();
             const allScripts = [...defaultScripts, ...globalScripts];
             const scriptsPerPage = 3;
             
-            // Page 1
             const page1Scripts = allScripts.slice(0, scriptsPerPage);
             const page1Container = document.getElementById('page1-scripts');
             page1Container.innerHTML = '';
@@ -742,7 +1031,6 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                 page1Container.appendChild(createScriptCard(script));
             });
             
-            // Page 2
             const page2Scripts = allScripts.slice(scriptsPerPage, scriptsPerPage * 2);
             const page2Container = document.getElementById('page2-scripts');
             page2Container.innerHTML = '';
@@ -750,13 +1038,13 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                 page2Container.appendChild(createScriptCard(script));
             });
             
-            // Update pagination
             updatePagination(allScripts.length, scriptsPerPage);
         }
 
         function createScriptCard(script) {
             const card = document.createElement('div');
             card.className = 'script-card';
+            card.setAttribute('data-script-id', script.id);
             card.innerHTML = `
                 <img src="${script.image}" alt="${script.name}" class="script-card-image">
                 <div class="script-card-content">
@@ -787,7 +1075,7 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                     <div class="script-card-script">
                         <div class="script-card-script-header">
                             <span class="script-card-script-label">Script Code</span>
-                            <button class="copy-btn" onclick="copyCustomScript('${script.script.replace(/'/g, "\\'")}'); activateAd();">
+                            <button class="copy-btn" onclick="copyCustomScript(\`${script.script}\`); activateAd();">
                                 <svg class="copy-icon" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
                                 </svg>
@@ -799,7 +1087,7 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                         </div>
                     </div>
                 </div>
-                ${adminAccess ? `<button class="delete-btn" onclick="deleteScript(${script.id})">Delete</button>` : ''}
+                ${adminAccess ? `<button class="delete-btn" onclick="event.stopPropagation(); deleteScript(${script.id})">Delete</button>` : ''}
             `;
             return card;
         }
@@ -808,13 +1096,12 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             if (!adminAccess) return;
             
             if (confirm('Are you sure you want to delete this script?')) {
-                // Remove from global scripts
                 const globalScripts = getGlobalScripts();
                 const updatedScripts = globalScripts.filter(script => script.id !== scriptId);
                 saveGlobalScripts(updatedScripts);
                 
-                // Reload scripts
                 loadScripts();
+                loadHomeScripts();
                 showNotification('Script deleted successfully!');
             }
         }
@@ -837,7 +1124,6 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             }
         }
 
-        // Copy Functions
         function copyScript() {
             const scriptCode = document.getElementById('script-code').textContent;
             copyToClipboard(scriptCode);
@@ -872,25 +1158,15 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                 document.execCommand('copy');
                 showCopyFeedback();
             } catch (err) {
-                console.error('Fallback: Oops, unable to copy', err);
+                console.error('Fallback: Unable to copy', err);
             }
             document.body.removeChild(textArea);
         }
 
         function showCopyFeedback() {
-            const notification = document.createElement('div');
-            notification.className = 'admin-notification';
-            notification.textContent = 'Script copied to clipboard!';
-            document.body.appendChild(notification);
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease-in';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 2000);
+            showNotification('Script copied to clipboard!');
         }
 
-        // Navigation System
         function navigateTo(hash) {
             window.location.hash = hash;
             showSection(hash);
@@ -917,10 +1193,30 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                 btn.classList.remove('active');
             });
             
+            if (hash.includes('/Search=')) {
+                const parts = hash.split('/Search=');
+                const baseHash = parts[0];
+                const searchTerm = decodeURIComponent(parts[1]);
+                
+                if (baseHash === '#Home') {
+                    document.getElementById('home-section').classList.add('active');
+                    document.querySelector('.nav-btn[onclick="navigateTo(\'#Home\')"]').classList.add('active');
+                    document.getElementById('homeSearchInput').value = searchTerm;
+                    displaySearchResults(searchTerm, 'home');
+                } else if (baseHash === '#Other-scripts') {
+                    document.getElementById('other-scripts-section').classList.add('active');
+                    document.querySelector('.nav-btn[onclick="navigateTo(\'#Other-Scripts\')"]').classList.add('active');
+                    document.getElementById('otherScriptsSearchInput').value = searchTerm;
+                    displaySearchResults(searchTerm, 'other');
+                }
+                return;
+            }
+            
             let sectionId;
             if (hash === '#Home' || hash === '') {
                 sectionId = 'home-section';
                 document.querySelector('.nav-btn[onclick="navigateTo(\'#Home\')"]').classList.add('active');
+                loadHomeScripts();
             } else if (hash === '#Script') {
                 sectionId = 'script-section';
                 document.querySelector('.nav-btn[onclick="navigateTo(\'#Script\')"]').classList.add('active');
@@ -941,7 +1237,6 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             }
         }
 
-        // Notification System
         function showNotification(message) {
             const notification = document.createElement('div');
             notification.className = 'admin-notification';
@@ -950,12 +1245,13 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             setTimeout(() => {
                 notification.style.animation = 'slideOut 0.3s ease-in';
                 setTimeout(() => {
-                    document.body.removeChild(notification);
+                    if (notification.parentNode) {
+                        document.body.removeChild(notification);
+                    }
                 }, 300);
             }, 3000);
         }
 
-        // Ad System
         function activateAd() {
             if (!adLoaded) {
                 const script = document.createElement('script');
@@ -966,7 +1262,6 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             }
         }
 
-        // Ripple Effects
         function addRipple(event) {
             const button = event.currentTarget;
             const ripple = document.createElement('div');
@@ -988,6 +1283,15 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
                 pointer-events: none;
             `;
             
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes rippleAnimation {
+                    0% { transform: scale(0); opacity: 0.7; }
+                    100% { transform: scale(2); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
             button.appendChild(ripple);
             
             setTimeout(() => {
@@ -997,34 +1301,28 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
             }, 600);
         }
 
-        // Initialize everything when DOM is loaded
         window.addEventListener('DOMContentLoaded', function() {
             const hash = window.location.hash || '#Home';
             showSection(hash);
             updateUploadButtonVisibility();
             loadScripts();
+            loadHomeScripts();
             
-            // Add ripple effects to interactive elements
-            const interactiveElements = [
-                '.nav-btn', '.copy-btn', '.accept-invite-btn', 
-                '.executor-item', '.legend-item', '.feature-card',
-                '.game-link-btn', '.script-card-game-link', '.page-btn',
-                '.toggle-btn', '.upload-submit-btn'
-            ];
+            const interactiveElements = document.querySelectorAll(
+                '.nav-btn, .copy-btn, .accept-invite-btn, .executor-item, .legend-item, ' +
+                '.game-link-btn, .script-card-game-link, .page-btn, .toggle-btn, ' +
+                '.upload-submit-btn, .search-btn, .load-more-btn'
+            );
             
-            interactiveElements.forEach(selector => {
-                const elements = document.querySelectorAll(selector);
-                elements.forEach(element => {
-                    element.style.position = 'relative';
-                    element.style.overflow = 'hidden';
-                    element.addEventListener('click', function(event) {
-                        addRipple(event);
-                    });
+            interactiveElements.forEach(element => {
+                element.style.position = 'relative';
+                element.style.overflow = 'hidden';
+                element.addEventListener('click', function(event) {
+                    addRipple(event);
                 });
             });
         });
 
-        // Handle URL routing
         window.addEventListener('hashchange', function() {
             showSection(window.location.hash);
         });
