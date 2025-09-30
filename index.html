@@ -161,6 +161,10 @@
         .crop-btn:hover { background: linear-gradient(45deg, #45a049, #3d8b40); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4); }
         .crop-btn.cancel { background: linear-gradient(45deg, #f44336, #da190b); }
         .crop-btn.cancel:hover { background: linear-gradient(45deg, #da190b, #c41409); box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4); }
+        .crop-size-controls { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .crop-size-input { width: 80px; padding: 0.5rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 5px; color: white; text-align: center; }
+        .crop-size-label { color: #ffd700; font-weight: 600; margin-bottom: 0.5rem; }
+        .crop-size-group { display: flex; flex-direction: column; align-items: center; }
         .ad-container { margin: 20px auto; text-align: center; padding: 10px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; max-width: 468px; min-height: 60px; border: 1px solid rgba(255, 215, 0, 0.1); }
         @media (max-width: 768px) {
             .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
@@ -174,6 +178,7 @@
             .toggle-group { flex-direction: column; }
             .home-scripts-grid { grid-template-columns: 1fr; }
             .search-container { flex-direction: column; }
+            .crop-size-controls { flex-direction: column; }
         }
     </style>
 </head>
@@ -461,6 +466,26 @@
     <div class="crop-modal" id="cropModal">
         <div class="crop-container">
             <h2 class="crop-title">Crop Your Image</h2>
+            
+            <div class="crop-size-controls">
+                <div class="crop-size-group">
+                    <label class="crop-size-label">Width</label>
+                    <input type="number" class="crop-size-input" id="cropWidth" min="50" value="200" onchange="updateCropSize()">
+                </div>
+                <div class="crop-size-group">
+                    <label class="crop-size-label">Height</label>
+                    <input type="number" class="crop-size-input" id="cropHeight" min="50" value="200" onchange="updateCropSize()">
+                </div>
+                <div class="crop-size-group">
+                    <label class="crop-size-label">Top</label>
+                    <input type="number" class="crop-size-input" id="cropTop" min="0" value="0" onchange="updateCropPosition()">
+                </div>
+                <div class="crop-size-group">
+                    <label class="crop-size-label">Left</label>
+                    <input type="number" class="crop-size-input" id="cropLeft" min="0" value="0" onchange="updateCropPosition()">
+                </div>
+            </div>
+            
             <div class="crop-canvas-container" id="cropCanvasContainer">
                 <canvas class="crop-canvas" id="cropCanvas"></canvas>
                 <div class="crop-overlay">
@@ -493,6 +518,7 @@
         let resizeHandle = null;
         let startX = 0;
         let startY = 0;
+        let originalImageData = null;
 
         const GLOBAL_SCRIPTS_KEY = 'lemonhub_global_scripts';
         
@@ -667,12 +693,22 @@
             canvas.height = height;
             ctx.drawImage(img, 0, 0, width, height);
             
+            // Store original image data for reset
+            originalImageData = ctx.getImageData(0, 0, width, height);
+            
+            // Initialize crop data
             cropData = {
                 x: width / 4,
                 y: height / 4,
                 width: width / 2,
                 height: height / 2
             };
+            
+            // Update form inputs
+            document.getElementById('cropWidth').value = cropData.width;
+            document.getElementById('cropHeight').value = cropData.height;
+            document.getElementById('cropTop').value = cropData.y;
+            document.getElementById('cropLeft').value = cropData.x;
             
             updateCropArea();
             modal.classList.add('active');
@@ -720,6 +756,11 @@
                 
                 cropData.x = Math.max(0, Math.min(canvas.width - cropData.width, newX));
                 cropData.y = Math.max(0, Math.min(canvas.height - cropData.height, newY));
+                
+                // Update form inputs
+                document.getElementById('cropTop').value = cropData.y;
+                document.getElementById('cropLeft').value = cropData.x;
+                
                 updateCropArea();
             }
             
@@ -762,6 +803,12 @@
                         break;
                 }
                 
+                // Update form inputs
+                document.getElementById('cropWidth').value = cropData.width;
+                document.getElementById('cropHeight').value = cropData.height;
+                document.getElementById('cropTop').value = cropData.y;
+                document.getElementById('cropLeft').value = cropData.x;
+                
                 startX = e.clientX;
                 startY = e.clientY;
                 updateCropArea();
@@ -782,7 +829,35 @@
             cropArea.style.height = cropData.height + 'px';
         }
 
-        function applyCrop() {
+        function updateCropSize() {
+            const width = parseInt(document.getElementById('cropWidth').value) || 200;
+            const height = parseInt(document.getElementById('cropHeight').value) || 200;
+            
+            const canvas = document.getElementById('cropCanvas');
+            cropData.width = Math.max(50, Math.min(canvas.width - cropData.x, width));
+            cropData.height = Math.max(50, Math.min(canvas.height - cropData.y, height));
+            
+            document.getElementById('cropWidth').value = cropData.width;
+            document.getElementById('cropHeight').value = cropData.height;
+            
+            updateCropArea();
+        }
+
+        function updateCropPosition() {
+            const top = parseInt(document.getElementById('cropTop').value) || 0;
+            const left = parseInt(document.getElementById('cropLeft').value) || 0;
+            
+            const canvas = document.getElementById('cropCanvas');
+            cropData.x = Math.max(0, Math.min(canvas.width - cropData.width, left));
+            cropData.y = Math.max(0, Math.min(canvas.height - cropData.height, top));
+            
+            document.getElementById('cropTop').value = cropData.y;
+            document.getElementById('cropLeft').value = cropData.x;
+            
+            updateCropArea();
+        }
+
+        function saveCrop() {
             const canvas = document.getElementById('cropCanvas');
             const tempCanvas = document.createElement('canvas');
             const tempCtx = tempCanvas.getContext('2d');
