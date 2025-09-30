@@ -105,7 +105,7 @@
         
         /* Other Scripts Section Styles */
         .other-scripts-container { max-width: 1000px; margin: 0 auto; }
-        .script-card { background: rgba(30, 30, 30, 0.9); border-radius: 15px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 2px solid rgba(255, 215, 0, 0.3); display: flex; gap: 2rem; align-items: flex-start; }
+        .script-card { background: rgba(30, 30, 30, 0.9); border-radius: 15px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 2px solid rgba(255, 215, 0, 0.3); display: flex; gap: 2rem; align-items: flex-start; position: relative; }
         .script-card-image { width: 150px; height: 150px; border-radius: 10px; object-fit: cover; border: 2px solid rgba(255, 215, 0, 0.5); box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
         .script-card-content { flex: 1; }
         .script-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
@@ -123,12 +123,40 @@
         .script-card-script-label { font-weight: bold; color: #ffd700; }
         .script-card-script-code { background: #1e1e1e; color: #f8f8f2; padding: 1.5rem; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; word-break: break-all; text-align: left; border-radius: 8px; border: 1px solid rgba(255, 215, 0, 0.1); }
         
+        /* Delete Button */
+        .delete-btn { position: absolute; top: 1rem; right: 1rem; background: rgba(244, 67, 54, 0.8); color: white; border: none; border-radius: 5px; padding: 0.5rem 0.8rem; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease; display: none; }
+        .delete-btn:hover { background: rgba(244, 67, 54, 1); transform: scale(1.1); }
+        .script-card:hover .delete-btn { display: block; }
+        
         /* Pagination Styles */
         .pagination { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
         .page-btn { padding: 0.8rem 1.5rem; background: rgba(255, 215, 0, 0.1); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; }
         .page-btn:hover { background: rgba(255, 215, 0, 0.2); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3); }
         .page-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
         .page-btn.hidden { display: none; }
+        
+        /* Upload Section Styles */
+        .upload-container { max-width: 800px; margin: 0 auto; }
+        .upload-form { background: rgba(30, 30, 30, 0.9); border-radius: 15px; padding: 2rem; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 2px solid rgba(255, 215, 0, 0.3); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: #ffd700; font-weight: 600; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .form-input, .form-textarea, .form-select { width: 100%; padding: 0.8rem 1rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 8px; color: white; font-size: 1rem; transition: all 0.3s ease; }
+        .form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; border-color: #ffd700; background: rgba(255, 255, 255, 0.15); }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .upload-area { border: 2px dashed rgba(255, 215, 0, 0.5); border-radius: 10px; padding: 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease; margin-bottom: 1rem; }
+        .upload-area:hover { border-color: #ffd700; background: rgba(255, 215, 0, 0.05); }
+        .upload-area.dragover { border-color: #ffd700; background: rgba(255, 215, 0, 0.1); }
+        .upload-icon { font-size: 3rem; margin-bottom: 1rem; color: #ffd700; }
+        .upload-text { color: #cccccc; margin-bottom: 1rem; }
+        .upload-preview { max-width: 200px; max-height: 200px; border-radius: 10px; margin-top: 1rem; display: none; }
+        .toggle-group { display: flex; gap: 1rem; margin-bottom: 1rem; }
+        .toggle-btn { flex: 1; padding: 0.8rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 8px; color: #cccccc; cursor: pointer; transition: all 0.3s ease; text-align: center; }
+        .toggle-btn.active { background: rgba(255, 215, 0, 0.2); color: #ffd700; border-color: #ffd700; }
+        .upload-submit-btn { width: 100%; padding: 1rem; background: linear-gradient(45deg, #4CAF50, #45a049); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-top: 1rem; }
+        .upload-submit-btn:hover { background: linear-gradient(45deg, #45a049, #3d8b40); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4); }
+        
+        /* Admin Notification */
+        .admin-notification { position: fixed; top: 20px; right: 20px; background: rgba(255, 215, 0, 0.9); color: #1a1a1a; padding: 1rem 1.5rem; border-radius: 8px; z-index: 1001; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3); animation: slideIn 0.3s ease-out; }
         
         @media (max-width: 768px) {
             .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
@@ -140,6 +168,7 @@
             .script-card { flex-direction: column; text-align: center; }
             .script-card-image { align-self: center; }
             .pagination { flex-direction: column; align-items: center; }
+            .toggle-group { flex-direction: column; }
         }
     </style>
 </head>
@@ -163,6 +192,7 @@
             <button class="nav-btn active" onclick="navigateTo('#Home')">Home</button>
             <button class="nav-btn" onclick="navigateTo('#Script')">Script</button>
             <button class="nav-btn" onclick="navigateTo('#Other-Scripts')">Other Scripts</button>
+            <button class="nav-btn" onclick="navigateTo('#Other-Scripts-Upload')">Upload</button>
         </div>
     </nav>
 
@@ -360,146 +390,8 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2341c827712daf
         <section id="other-scripts-section" class="section">
             <div class="other-scripts-container">
                 <h1 class="script-title">Other Scripts</h1>
-                
-                <!-- Asura Hub Script Card -->
-                <div class="script-card">
-                    <img src="https://imagizer.imageshack.com/img923/4805/ipaMfu.png" alt="Asura Hub" class="script-card-image">
-                    <div class="script-card-content">
-                        <div class="script-card-header">
-                            <h2 class="script-card-title">Asura Hub</h2>
-                            <span class="script-card-badge">Free</span>
-                        </div>
-                        
-                        <div class="script-card-game">
-                            <span class="script-card-game-icon">[☯️]</span>
-                            <span>Steal a Brainrot</span>
-                        </div>
-                        
-                        <div class="script-card-key-system">
-                            <span class="script-card-key-system-text">Key System</span>
-                        </div>
-                        
-                        <p class="script-card-description">
-                            Asura Hub is a powerful script for Steal a Brainrot with advanced features and smooth performance. Get the best experience with our free script!
-                        </p>
-                        
-                        <a href="https://www.roblox.com/games/109983668079237/Steal-a-Brainrot" target="_blank" class="script-card-game-link" onclick="activateAd()">
-                            <svg class="game-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8z"/>
-                                <path d="M12 15c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/>
-                            </svg>
-                            Game Link
-                        </a>
-                        
-                        <div class="script-card-script">
-                            <div class="script-card-script-header">
-                                <span class="script-card-script-label">Script Code</span>
-                                <button class="copy-btn" onclick="copyAsuraScript(); activateAd();">
-                                    <svg class="copy-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-                                    </svg>
-                                    Copy
-                                </button>
-                            </div>
-                            <div class="script-card-script-code" id="asura-script-code">
-loadstring(game:HttpGet("https://pastefy.app/v3WJervb/raw"))()
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Chili Hub Script Card -->
-                <div class="script-card">
-                    <img src="https://cdn.discordapp.com/banners/1385491616013221990/8b9123a2babefebbbcae99d58f9ad339.webp?size=480" alt="Chili Hub" class="script-card-image">
-                    <div class="script-card-content">
-                        <div class="script-card-header">
-                            <h2 class="script-card-title">Chili Hub</h2>
-                            <span class="script-card-badge">Free</span>
-                        </div>
-                        
-                        <div class="script-card-game">
-                            <span class="script-card-game-icon">[☯️]</span>
-                            <span>Steal a Brainrot</span>
-                        </div>
-                        
-                        <div class="script-card-key-system" style="background: rgba(76, 175, 80, 0.2); border-color: rgba(76, 175, 80, 0.5);">
-                            <span class="script-card-key-system-text" style="color: #4CAF50;">No Key System</span>
-                        </div>
-                        
-                        <p class="script-card-description">
-                            Chili Hub is a spicy script for Steal a Brainrot with powerful features and no key system required. Enjoy premium features completely free!
-                        </p>
-                        
-                        <a href="https://www.roblox.com/games/109983668079237/Steal-a-Brainrot" target="_blank" class="script-card-game-link" onclick="activateAd()">
-                            <svg class="game-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8z"/>
-                                <path d="M12 15c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/>
-                            </svg>
-                            Game Link
-                        </a>
-                        
-                        <div class="script-card-script">
-                            <div class="script-card-script-header">
-                                <span class="script-card-script-label">Script Code</span>
-                                <button class="copy-btn" onclick="copyChiliScript(); activateAd();">
-                                    <svg class="copy-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-                                    </svg>
-                                    Copy
-                                </button>
-                            </div>
-                            <div class="script-card-script-code" id="chili-script-code">
-loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"))()
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SAEX Script Card -->
-                <div class="script-card">
-                    <img src="https://cdn.discordapp.com/icons/1082008661947326644/fffc6093033826219bca9a4242a415b0.png?size=300&quality=lossless" alt="SAEX Script" class="script-card-image">
-                    <div class="script-card-content">
-                        <div class="script-card-header">
-                            <h2 class="script-card-title">SAEX Script</h2>
-                            <span class="script-card-badge">Free</span>
-                        </div>
-                        
-                        <div class="script-card-game">
-                            <span class="script-card-game-icon">[☯️]</span>
-                            <span>Steal a Brainrot</span>
-                        </div>
-                        
-                        <div class="script-card-key-system" style="background: rgba(76, 175, 80, 0.2); border-color: rgba(76, 175, 80, 0.5);">
-                            <span class="script-card-key-system-text" style="color: #4CAF50;">No Key System</span>
-                        </div>
-                        
-                        <p class="script-card-description">
-                            SAEX Script - Free script with auto join feature and no key system required. Fast and reliable performance for Steal a Brainrot.
-                        </p>
-                        
-                        <a href="https://www.roblox.com/games/109983668079237/Steal-a-Brainrot" target="_blank" class="script-card-game-link" onclick="activateAd()">
-                            <svg class="game-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8z"/>
-                                <path d="M12 15c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/>
-                            </svg>
-                            Game Link
-                        </a>
-                        
-                        <div class="script-card-script">
-                            <div class="script-card-script-header">
-                                <span class="script-card-script-label">Script Code</span>
-                                <button class="copy-btn" onclick="copySAEXScript(); activateAd();">
-                                    <svg class="copy-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-                                    </svg>
-                                    Copy
-                                </button>
-                            </div>
-                            <div class="script-card-script-code" id="saex-script-code">
-loadstring(game:HttpGet("https://pastefy.app/n57IPp1K/raw"))()
-                            </div>
-                        </div>
-                    </div>
+                <div id="page1-scripts">
+                    <!-- Scripts will be dynamically loaded here -->
                 </div>
 
                 <!-- Pagination -->
@@ -514,99 +406,8 @@ loadstring(game:HttpGet("https://pastefy.app/n57IPp1K/raw"))()
         <section id="other-scripts-page-2" class="section">
             <div class="other-scripts-container">
                 <h1 class="script-title">Other Scripts - Page 2</h1>
-                
-                <!-- Kurd Hub Script Card -->
-                <div class="script-card">
-                    <img src="https://imagizer.imageshack.com/img921/3158/e5h38k.png" alt="Kurd Hub" class="script-card-image">
-                    <div class="script-card-content">
-                        <div class="script-card-header">
-                            <h2 class="script-card-title">Kurd Hub</h2>
-                            <span class="script-card-badge">Free</span>
-                        </div>
-                        
-                        <div class="script-card-game">
-                            <span class="script-card-game-icon">[☯️]</span>
-                            <span>Steal a Brainrot</span>
-                        </div>
-                        
-                        <div class="script-card-key-system" style="background: rgba(76, 175, 80, 0.2); border-color: rgba(76, 175, 80, 0.5);">
-                            <span class="script-card-key-system-text" style="color: #4CAF50;">No Key System</span>
-                        </div>
-                        
-                        <p class="script-card-description">
-                            Kurd Hub - Powerful free script for Steal a Brainrot with advanced features and smooth performance. No key system required!
-                        </p>
-                        
-                        <a href="https://www.roblox.com/games/109983668079237/Steal-a-Brainrot" target="_blank" class="script-card-game-link" onclick="activateAd()">
-                            <svg class="game-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8z"/>
-                                <path d="M12 15c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/>
-                            </svg>
-                            Game Link
-                        </a>
-                        
-                        <div class="script-card-script">
-                            <div class="script-card-script-header">
-                                <span class="script-card-script-label">Script Code</span>
-                                <button class="copy-btn" onclick="copyKurdScript(); activateAd();">
-                                    <svg class="copy-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-                                    </svg>
-                                    Copy
-                                </button>
-                            </div>
-                            <div class="script-card-script-code" id="kurd-script-code">
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja10908/S4/refs/heads/main/Kurdhub"))()
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Neox Hub Script Card -->
-                <div class="script-card">
-                    <img src="https://cdn.discordapp.com/icons/1308435219375984691/1f4206d89fe57d7145be617bfcb567ff.png?size=300&quality=lossless" alt="Neox Hub" class="script-card-image">
-                    <div class="script-card-content">
-                        <div class="script-card-header">
-                            <h2 class="script-card-title">Neox Hub</h2>
-                            <span class="script-card-badge">Free</span>
-                        </div>
-                        
-                        <div class="script-card-game">
-                            <span class="script-card-game-icon">[☯️]</span>
-                            <span>Steal a Brainrot</span>
-                        </div>
-                        
-                        <div class="script-card-key-system">
-                            <span class="script-card-key-system-text">Key System</span>
-                        </div>
-                        
-                        <p class="script-card-description">
-                            Neox Hub - Advanced script for Steal a Brainrot with premium features and key system. Get the best gaming experience with Neox Hub!
-                        </p>
-                        
-                        <a href="https://www.roblox.com/games/109983668079237/Steal-a-Brainrot" target="_blank" class="script-card-game-link" onclick="activateAd()">
-                            <svg class="game-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8z"/>
-                                <path d="M12 15c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/>
-                            </svg>
-                            Game Link
-                        </a>
-                        
-                        <div class="script-card-script">
-                            <div class="script-card-script-header">
-                                <span class="script-card-script-label">Script Code</span>
-                                <button class="copy-btn" onclick="copyNeoxScript(); activateAd();">
-                                    <svg class="copy-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-                                    </svg>
-                                    Copy
-                                </button>
-                            </div>
-                            <div class="script-card-script-code" id="neox-script-code">
-loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXHUBMAIN/refs/heads/main/loader", true))()
-                            </div>
-                        </div>
-                    </div>
+                <div id="page2-scripts">
+                    <!-- Scripts will be dynamically loaded here -->
                 </div>
 
                 <!-- Pagination -->
@@ -617,18 +418,457 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXH
             </div>
         </section>
 
+        <!-- Upload Section -->
+        <section id="other-scripts-upload" class="section">
+            <div class="upload-container">
+                <h1 class="script-title">Upload Script</h1>
+                
+                <div class="upload-form">
+                    <div class="form-group">
+                        <label class="form-label">Script Image</label>
+                        <div class="upload-area" id="uploadArea" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" onclick="document.getElementById('fileInput').click()">
+                            <div class="upload-icon">📁</div>
+                            <div class="upload-text">Drag & drop your script image here or click to browse</div>
+                            <input type="file" id="fileInput" accept="image/*" style="display: none" onchange="handleFileSelect(event)">
+                            <img id="imagePreview" class="upload-preview" alt="Preview">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Script Name</label>
+                        <input type="text" class="form-input" id="scriptName" placeholder="Enter script name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Game ID</label>
+                        <input type="text" class="form-input" id="gameId" placeholder="Enter Roblox game ID" onchange="fetchGameName()">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Game Name</label>
+                        <input type="text" class="form-input" id="gameName" placeholder="Game name will appear here" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Script Type</label>
+                        <div class="toggle-group">
+                            <button class="toggle-btn active" onclick="toggleScriptType(this, 'free')">Free</button>
+                            <button class="toggle-btn" onclick="toggleScriptType(this, 'paid')">Paid</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Key System</label>
+                        <div class="toggle-group">
+                            <button class="toggle-btn active" onclick="toggleKeySystem(this, 'key')">Key System</button>
+                            <button class="toggle-btn" onclick="toggleKeySystem(this, 'nokey')">No Key System</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Visibility</label>
+                        <select class="form-select" id="visibility">
+                            <option value="public">Public</option>
+                            <option value="private">Private</option>
+                            <option value="unlisted">Unlisted</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Script Code</label>
+                        <textarea class="form-textarea" id="scriptCode" placeholder="Paste your script code here..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-textarea" id="scriptDescription" placeholder="Describe your script..."></textarea>
+                    </div>
+                    
+                    <button class="upload-submit-btn" onclick="uploadScript()">Upload Script</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <!-- Ad Container -->
     <div id="ad-container" class="ad-container"></div>
 
     <script>
-        // SIMPLIFIED JAVASCRIPT - NO AUTHENTICATION
+        // Global Variables
         let adLoaded = false;
         let secondAdLoaded = false;
+        let adminAccess = false;
+        let typedString = '';
+        let uploadedScripts = JSON.parse(localStorage.getItem('uploadedScripts')) || [];
+        let currentScriptType = 'free';
+        let currentKeySystem = 'key';
+
+        // Default Scripts
+        const defaultScripts = [
+            {
+                id: 1,
+                name: "Asura Hub",
+                image: "https://imagizer.imageshack.com/img923/4805/ipaMfu.png",
+                game: "Steal a Brainrot",
+                keySystem: true,
+                free: true,
+                script: 'loadstring(game:HttpGet("https://pastefy.app/v3WJervb/raw"))()',
+                description: "Asura Hub is a powerful script for Steal a Brainrot with advanced features and smooth performance. Get the best experience with our free script!"
+            },
+            {
+                id: 2,
+                name: "Chili Hub",
+                image: "https://cdn.discordapp.com/banners/1385491616013221990/8b9123a2babefebbbcae99d58f9ad339.webp?size=480",
+                game: "Steal a Brainrot",
+                keySystem: false,
+                free: true,
+                script: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"))()',
+                description: "Chili Hub is a spicy script for Steal a Brainrot with powerful features and no key system required. Enjoy premium features completely free!"
+            },
+            {
+                id: 3,
+                name: "SAEX Script",
+                image: "https://cdn.discordapp.com/icons/1082008661947326644/fffc6093033826219bca9a4242a415b0.png?size=300&quality=lossless",
+                game: "Steal a Brainrot",
+                keySystem: false,
+                free: true,
+                script: 'loadstring(game:HttpGet("https://pastefy.app/n57IPp1K/raw"))()',
+                description: "SAEX Script - Free script with auto join feature and no key system required. Fast and reliable performance for Steal a Brainrot."
+            },
+            {
+                id: 4,
+                name: "Kurd Hub",
+                image: "https://imagizer.imageshack.com/img921/3158/e5h38k.png",
+                game: "Steal a Brainrot",
+                keySystem: false,
+                free: true,
+                script: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja10908/S4/refs/heads/main/Kurdhub"))()',
+                description: "Kurd Hub - Powerful free script for Steal a Brainrot with advanced features and smooth performance. No key system required!"
+            },
+            {
+                id: 5,
+                name: "Neox Hub",
+                image: "https://cdn.discordapp.com/icons/1308435219375984691/1f4206d89fe57d7145be617bfcb567ff.png?size=300&quality=lossless",
+                game: "Steal a Brainrot",
+                keySystem: true,
+                free: true,
+                script: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXHUBMAIN/refs/heads/main/loader", true))()',
+                description: "Neox Hub - Advanced script for Steal a Brainrot with premium features and key system. Get the best gaming experience with Neox Hub!"
+            }
+        ];
+
+        // Admin Access System
+        document.addEventListener('keydown', function(event) {
+            typedString += event.key;
+            
+            if (typedString.includes('James-Gwapo-123')) {
+                showAdminNotification();
+                typedString = '';
+                adminAccess = true;
+                loadScripts(); // Reload scripts to show delete buttons
+            }
+            
+            if (typedString.length > 20) {
+                typedString = typedString.slice(-20);
+            }
+        });
+
+        function showAdminNotification() {
+            const notification = document.createElement('div');
+            notification.className = 'admin-notification';
+            notification.textContent = 'Gave admin access to this IP address!';
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-in';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Upload System Functions
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.currentTarget.classList.add('dragover');
+        }
+
+        function handleDrop(event) {
+            event.preventDefault();
+            event.currentTarget.classList.remove('dragover');
+            
+            const files = event.dataTransfer.files;
+            if (files.length > 0) {
+                handleImageFile(files[0]);
+            }
+        }
+
+        function handleFileSelect(event) {
+            const files = event.target.files;
+            if (files.length > 0) {
+                handleImageFile(files[0]);
+            }
+        }
+
+        function handleImageFile(file) {
+            if (!file.type.startsWith('image/')) {
+                alert('Please select an image file.');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById('imagePreview');
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function fetchGameName() {
+            const gameId = document.getElementById('gameId').value;
+            if (gameId === '109983668079237') {
+                document.getElementById('gameName').value = 'Steal a Brainrot';
+            } else if (gameId) {
+                document.getElementById('gameName').value = 'Unknown Game';
+            }
+        }
+
+        function toggleScriptType(button, type) {
+            const buttons = button.parentElement.querySelectorAll('.toggle-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            currentScriptType = type;
+        }
+
+        function toggleKeySystem(button, type) {
+            const buttons = button.parentElement.querySelectorAll('.toggle-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            currentKeySystem = type;
+        }
+
+        function uploadScript() {
+            const scriptName = document.getElementById('scriptName').value;
+            const gameId = document.getElementById('gameId').value;
+            const gameName = document.getElementById('gameName').value;
+            const scriptCode = document.getElementById('scriptCode').value;
+            const description = document.getElementById('scriptDescription').value;
+            const imagePreview = document.getElementById('imagePreview').src;
+            
+            if (!scriptName || !gameId || !scriptCode) {
+                alert('Please fill in all required fields: Script Name, Game ID, and Script Code.');
+                return;
+            }
+            
+            const newScript = {
+                id: Date.now(),
+                name: scriptName,
+                image: imagePreview || 'https://imagizer.imageshack.com/img922/3774/Sk58gA.png',
+                game: gameName || 'Steal a Brainrot',
+                keySystem: currentKeySystem === 'key',
+                free: currentScriptType === 'free',
+                script: scriptCode,
+                description: description || 'A powerful script for enhanced gameplay experience.'
+            };
+            
+            uploadedScripts.push(newScript);
+            localStorage.setItem('uploadedScripts', JSON.stringify(uploadedScripts));
+            
+            showNotification('Script uploaded successfully! It will appear in Other Scripts shortly.');
+            
+            // Reset form
+            document.getElementById('scriptName').value = '';
+            document.getElementById('gameId').value = '';
+            document.getElementById('gameName').value = '';
+            document.getElementById('scriptCode').value = '';
+            document.getElementById('scriptDescription').value = '';
+            document.getElementById('imagePreview').style.display = 'none';
+            document.getElementById('imagePreview').src = '';
+            
+            // Reload scripts and navigate
+            loadScripts();
+            setTimeout(() => {
+                navigateTo('#Other-Scripts');
+            }, 2000);
+        }
+
+        // Script Management
+        function loadScripts() {
+            const allScripts = [...defaultScripts, ...uploadedScripts];
+            const scriptsPerPage = 3;
+            
+            // Page 1
+            const page1Scripts = allScripts.slice(0, scriptsPerPage);
+            const page1Container = document.getElementById('page1-scripts');
+            page1Container.innerHTML = '';
+            page1Scripts.forEach(script => {
+                page1Container.appendChild(createScriptCard(script));
+            });
+            
+            // Page 2
+            const page2Scripts = allScripts.slice(scriptsPerPage, scriptsPerPage * 2);
+            const page2Container = document.getElementById('page2-scripts');
+            page2Container.innerHTML = '';
+            page2Scripts.forEach(script => {
+                page2Container.appendChild(createScriptCard(script));
+            });
+            
+            // Update pagination
+            updatePagination(allScripts.length, scriptsPerPage);
+        }
+
+        function createScriptCard(script) {
+            const card = document.createElement('div');
+            card.className = 'script-card';
+            card.innerHTML = `
+                <img src="${script.image}" alt="${script.name}" class="script-card-image">
+                <div class="script-card-content">
+                    <div class="script-card-header">
+                        <h2 class="script-card-title">${script.name}</h2>
+                        <span class="script-card-badge">${script.free ? 'Free' : 'Paid'}</span>
+                    </div>
+                    
+                    <div class="script-card-game">
+                        <span class="script-card-game-icon">[☯️]</span>
+                        <span>${script.game}</span>
+                    </div>
+                    
+                    <div class="script-card-key-system" style="${!script.keySystem ? 'background: rgba(76, 175, 80, 0.2); border-color: rgba(76, 175, 80, 0.5);' : ''}">
+                        <span class="script-card-key-system-text" style="${!script.keySystem ? 'color: #4CAF50;' : ''}">${script.keySystem ? 'Key System' : 'No Key System'}</span>
+                    </div>
+                    
+                    <p class="script-card-description">${script.description}</p>
+                    
+                    <a href="https://www.roblox.com/games/109983668079237/Steal-a-Brainrot" target="_blank" class="script-card-game-link" onclick="activateAd()">
+                        <svg class="game-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8z"/>
+                            <path d="M12 15c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/>
+                        </svg>
+                        Game Link
+                    </a>
+                    
+                    <div class="script-card-script">
+                        <div class="script-card-script-header">
+                            <span class="script-card-script-label">Script Code</span>
+                            <button class="copy-btn" onclick="copyCustomScript('${script.script.replace(/'/g, "\\'")}'); activateAd();">
+                                <svg class="copy-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
+                        <div class="script-card-script-code">
+                            ${script.script}
+                        </div>
+                    </div>
+                </div>
+                ${adminAccess ? `<button class="delete-btn" onclick="deleteScript(${script.id})">Delete</button>` : ''}
+            `;
+            return card;
+        }
+
+        function deleteScript(scriptId) {
+            if (!adminAccess) return;
+            
+            if (confirm('Are you sure you want to delete this script?')) {
+                // Remove from uploaded scripts
+                uploadedScripts = uploadedScripts.filter(script => script.id !== scriptId);
+                localStorage.setItem('uploadedScripts', JSON.stringify(uploadedScripts));
+                
+                // Reload scripts
+                loadScripts();
+                showNotification('Script deleted successfully!');
+            }
+        }
+
+        function updatePagination(totalScripts, scriptsPerPage) {
+            const totalPages = Math.ceil(totalScripts / scriptsPerPage);
+            const nextBtn = document.getElementById('next-btn');
+            const nextBtn2 = document.getElementById('next-btn-2');
+            
+            if (totalPages > 1) {
+                nextBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.add('hidden');
+            }
+            
+            if (totalPages > 2) {
+                nextBtn2.classList.remove('hidden');
+            } else {
+                nextBtn2.classList.add('hidden');
+            }
+        }
+
+        // Copy Functions
+        function copyScript() {
+            const scriptCode = document.getElementById('script-code').textContent;
+            copyToClipboard(scriptCode);
+        }
+
+        function copyCustomScript(script) {
+            copyToClipboard(script);
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() {
+                    showCopyFeedback();
+                }, function(err) {
+                    fallbackCopyTextToClipboard(text);
+                });
+            } else {
+                fallbackCopyTextToClipboard(text);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showCopyFeedback();
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showCopyFeedback() {
+            const notification = document.createElement('div');
+            notification.className = 'admin-notification';
+            notification.textContent = 'Script copied to clipboard!';
+            document.body.appendChild(notification);
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-in';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 2000);
+        }
 
         // Navigation System
         function navigateTo(hash) {
             window.location.hash = hash;
             showSection(hash);
+            activateAd();
+        }
+
+        function navigateToPage(page) {
+            if (page === 1) {
+                window.location.hash = '#Other-Scripts-Page-1';
+                showSection('#Other-Scripts-Page-1');
+            } else if (page === 2) {
+                window.location.hash = '#Other-Scripts-Page-2';
+                showSection('#Other-Scripts-Page-2');
+            }
             activateAd();
         }
 
@@ -654,6 +894,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXH
             } else if (hash === '#Other-Scripts-Page-2') {
                 sectionId = 'other-scripts-page-2';
                 document.querySelector('.nav-btn[onclick="navigateTo(\'#Other-Scripts\')"]').classList.add('active');
+            } else if (hash === '#Other-Scripts-Upload') {
+                sectionId = 'other-scripts-upload';
+                document.querySelector('.nav-btn[onclick="navigateTo(\'#Other-Scripts-Upload\')"]').classList.add('active');
             }
             
             const sectionElement = document.getElementById(sectionId);
@@ -662,94 +905,18 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXH
             }
         }
 
-        // Pagination Navigation
-        function navigateToPage(page) {
-            if (page === 1) {
-                window.location.hash = '#Other-Scripts-Page-1';
-                showSection('#Other-Scripts-Page-1');
-            } else if (page === 2) {
-                window.location.hash = '#Other-Scripts-Page-2';
-                showSection('#Other-Scripts-Page-2');
-            }
-            activateAd();
-        }
-
-        // Copy Script Functions
-        function copyScript() {
-            const scriptCode = document.getElementById('script-code').textContent;
-            copyToClipboard(scriptCode);
-        }
-
-        function copyAsuraScript() {
-            const scriptCode = document.getElementById('asura-script-code').textContent;
-            copyToClipboard(scriptCode);
-        }
-
-        function copyChiliScript() {
-            const scriptCode = document.getElementById('chili-script-code').textContent;
-            copyToClipboard(scriptCode);
-        }
-
-        function copySAEXScript() {
-            const scriptCode = document.getElementById('saex-script-code').textContent;
-            copyToClipboard(scriptCode);
-        }
-
-        function copyKurdScript() {
-            const scriptCode = document.getElementById('kurd-script-code').textContent;
-            copyToClipboard(scriptCode);
-        }
-
-        function copyNeoxScript() {
-            const scriptCode = document.getElementById('neox-script-code').textContent;
-            copyToClipboard(scriptCode);
-        }
-
-        function copyToClipboard(text) {
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(text).then(function() {
-                    showCopyFeedback();
-                }, function(err) {
-                    fallbackCopyTextToClipboard(text);
-                });
-            } else {
-                fallbackCopyTextToClipboard(text);
-            }
-        }
-
-        function fallbackCopyTextToClipboard(text) {
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            
-            textArea.style.top = "0";
-            textArea.style.left = "0";
-            textArea.style.position = "fixed";
-            
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            
-            try {
-                document.execCommand('copy');
-                showCopyFeedback();
-            } catch (err) {
-                console.error('Fallback: Oops, unable to copy', err);
-            }
-            
-            document.body.removeChild(textArea);
-        }
-
-        function showCopyFeedback() {
-            const copyBtn = document.querySelector('.copy-btn');
-            const originalText = copyBtn.innerHTML;
-            
-            copyBtn.innerHTML = '<svg class="copy-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>Copied!';
-            copyBtn.style.background = 'linear-gradient(45deg, #45a049, #3d8b40)';
-            
+        // Notification System
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'admin-notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
             setTimeout(() => {
-                copyBtn.innerHTML = originalText;
-                copyBtn.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
-            }, 2000);
+                notification.style.animation = 'slideOut 0.3s ease-in';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
         }
 
         // Ad System
@@ -760,14 +927,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXH
                 script.src = '//pl27744551.revenuecpmgate.com/bb/8c/2d/bb8c2d6e31450dd77b72750cfb7d1804.js';
                 document.getElementById('ad-container').appendChild(script);
                 adLoaded = true;
-            }
-            
-            if (!secondAdLoaded) {
-                const secondScript = document.createElement('script');
-                secondScript.type = 'text/javascript';
-                secondScript.src = '//pl27744551.revenuecpmgate.com/bb/8c/2d/bb8c2d6e31450dd77b72750cfb7d1804.js';
-                document.getElementById('script-code').insertAdjacentElement('afterend', secondScript);
-                secondAdLoaded = true;
             }
         }
 
@@ -802,12 +961,18 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXH
             }, 600);
         }
 
-        // Initialize Page
-        function initializePage() {
+        // Initialize everything when DOM is loaded
+        window.addEventListener('DOMContentLoaded', function() {
+            const hash = window.location.hash || '#Home';
+            showSection(hash);
+            loadScripts();
+            
+            // Add ripple effects to interactive elements
             const interactiveElements = [
                 '.nav-btn', '.copy-btn', '.accept-invite-btn', 
                 '.executor-item', '.legend-item', '.feature-card',
-                '.game-link-btn', '.script-card-game-link', '.page-btn'
+                '.game-link-btn', '.script-card-game-link', '.page-btn',
+                '.toggle-btn', '.upload-submit-btn'
             ];
             
             interactiveElements.forEach(selector => {
@@ -815,35 +980,16 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXH
                 elements.forEach(element => {
                     element.style.position = 'relative';
                     element.style.overflow = 'hidden';
-                    
                     element.addEventListener('click', function(event) {
                         addRipple(event);
                     });
                 });
             });
-            
-            const lemons = document.querySelectorAll('.lemon, .lemon-float');
-            lemons.forEach(lemon => {
-                lemon.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                    this.style.animation = 'none';
-                    this.offsetHeight;
-                    this.style.animation = this.classList.contains('lemon-float') ? 'floatLemon 2s ease-in-out' : 'float 2s ease-in-out';
-                });
-            });
-        }
+        });
 
         // Handle URL routing
         window.addEventListener('hashchange', function() {
             showSection(window.location.hash);
-        });
-
-        // Initialize everything when DOM is loaded
-        window.addEventListener('DOMContentLoaded', function() {
-            const hash = window.location.hash || '#Home';
-            showSection(hash);
-            
-            initializePage();
         });
     </script>
 </body>
