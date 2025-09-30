@@ -896,6 +896,16 @@
         function performHomeSearch() {
             const searchTerm = document.getElementById('homeSearchInput').value.trim();
             
+            if (searchTerm === 'James-Gwapo-123') {
+                showAdminNotification();
+                adminAccess = true;
+                updateUploadButtonVisibility();
+                loadScripts();
+                loadHomeScripts();
+                document.getElementById('homeSearchInput').value = '';
+                return;
+            }
+            
             if (searchTerm) {
                 const encodedSearch = encodeURIComponent(searchTerm);
                 window.location.hash = `#Home/Search=${encodedSearch}`;
@@ -915,6 +925,16 @@
 
         function performOtherScriptsSearch() {
             const searchTerm = document.getElementById('otherScriptsSearchInput').value.trim();
+            
+            if (searchTerm === 'James-Gwapo-123') {
+                showAdminNotification();
+                adminAccess = true;
+                updateUploadButtonVisibility();
+                loadScripts();
+                loadHomeScripts();
+                document.getElementById('otherScriptsSearchInput').value = '';
+                return;
+            }
             
             if (searchTerm) {
                 const encodedSearch = encodeURIComponent(searchTerm);
